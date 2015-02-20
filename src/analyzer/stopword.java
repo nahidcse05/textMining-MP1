@@ -253,11 +253,11 @@ public class stopword {
 	public static void main(String[] args) {
 		stopword com = new stopword();
 		com.readStopword("./data/stat1/smart_word_list_top_stop_word.txt");
-		com.readTop100Ngram("./data/stat1/Stopword_top_100_ngram.txt");
+		com.readTop100Ngram("./data/stat1/top_100_ngram.txt");
 		com.restaurant_specific_stop_word();
 		com.generateFinalStopwordList("./data/stat1/Final_stop_word_list.txt");
 		com.generateFinalRestaurantStopwordList("./data/stat1/Restaurant_stopwords.txt");
-		com.constructrefinedCV("./data/stat1/combine_ngram_df.txt");
+		//com.constructrefinedCV("./data/stat1/combine_ngram_df.txt");
 	}
 
 }

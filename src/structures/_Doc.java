@@ -18,7 +18,7 @@ public class _Doc implements Comparable<_Doc> {
 	String m_name;
 	int m_ID; // unique id of the document in the collection
 	String m_itemID; // ID of the product being commented
-	
+	public String m_start_token;
 	String m_source; //The content of the source file.
 	String m_author;
 	String m_date;
@@ -171,6 +171,12 @@ public class _Doc implements Comparable<_Doc> {
 	//Get the sparse vector of the document.
 	public _SparseFeature[] getSparse(){
 		return this.m_x_sparse;
+	}
+	
+	
+	//Get the sparse vector of the document.
+	public _SparseFeature[] getBiSparse(){
+			return this.m_x_bisparse;
 	}
 	
 	//return the unique number of features in the doc

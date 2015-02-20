@@ -187,17 +187,18 @@ public class combine_bigram {
 			String filename = "./data/stat1/bi_stat_"+i+".txt";
             com.readcsv(filename);
         }*/
-		for(int i=1;i<=4;i++)
+		/*for(int i=1;i<=4;i++)
         {
        
             String filename = "./data/stat1/uni_stat"+i+".txt";
             com.readcsv(filename);
-        }
+        }*/
 		
-		
+		com.readcsv("./data/stat1/bi_stat_all.txt");
+		com.readcsv("./data/stat1/uni_stat_all.txt");
 		
 		com.sortByComparator();
-		com.generateCsvFile1("./data/stat1/combine_unigram_df.txt");
+		com.generateCsvFile1("./data/stat1/combine_unigram_df_new.txt");
 		
 		
 		

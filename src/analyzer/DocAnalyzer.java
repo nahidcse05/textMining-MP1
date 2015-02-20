@@ -264,6 +264,13 @@ public class DocAnalyzer {
 				_Doc d = new _Doc(m_corpus.getSize(), review.getContent(), review.getAuthor(), review.getDate());
 				//System.out.println(d.getID()+ " "+d.getAuthor()+" "+ d.getDate()+ " "+ d.getSource()+"\n"); 
 				//TokenizerDemon(review.getContent());
+				String[] tokens = TokenizerNormalizeStemmer(d.getSource());
+				if(tokens.length<=0)
+					{
+						d.m_start_token = null;
+						continue;
+					}
+				d.m_start_token = tokens[0];
 				AnalyzeDoc(d);
 				review_counter++;
 				
@@ -567,7 +574,7 @@ public class DocAnalyzer {
 					prevToken=token;
 				}
 				else{
-					String bigram=prevToken+"_"+token;      //ByGramSet
+					String bigram=prevToken+"@"+token;      //ByGramSet
 					
 					if (m_bifeatureNameIndex.containsKey(bigram)) {
 						index = m_bifeatureNameIndex.get(bigram);
@@ -672,28 +679,28 @@ public class DocAnalyzer {
 		//when we want to execute it in command line
 		//analyzer.LoadDirectory("./data/samples", ".json");
 		
-	/*	analyzer.LoadDirectory("./data/Yelp_small/train1", ".json");
+		analyzer.LoadDirectory("./data/Yelp_small/test", ".json");
 		
 		//analyzer.LoadDirectory("./data/train", ".json");
 		try {
-			analyzer.SaveCVStat("./data/stat1/uni_stat1.txt", "./data/stat1/bi_stat_1.txt");
+			analyzer.SaveCVStat("./data/stat1/new_uni_stat_5.txt", "./data/stat1/new_bi_stat_5.txt");
 		} catch (FileNotFoundException e3) {
 			// TODO Auto-generated catch block
 			e3.printStackTrace();
-		}*/
+		}
 		
-		/*String token = "Imyname?Iamastonished!35c";
-		token = token.replaceAll("([?:!.,;])*", " ");
+	/*	String token = "Im/y-na`me?Iam{a}s(to)'n\"is[h]ed!35c";
+		token = token.replaceAll("([?`:!'\".,;{}()-/])*", " ");
 		token = token.replaceAll("\\W+", "");
 		token = token.toLowerCase();
 		
 		System.out.println(token);*/
 	
 		
-		DocAnalyzer analyzer2 = new DocAnalyzer("./data/stat1/conrolled_CV.txt");
+		/*DocAnalyzer analyzer2 = new DocAnalyzer("./data/stat1/conrolled_CV_new.txt");
 		analyzer2.LoadDirectory("./data/Yelp_small/query", ".json");
 		
-		DocAnalyzer analyzer1 = new DocAnalyzer("./data/stat1/conrolled_CV.txt");
+		DocAnalyzer analyzer1 = new DocAnalyzer("./data/stat1/conrolled_CV_new.txt");
 		analyzer1.LoadDirectory("./data/Yelp_small/test", ".json");
 		
 		for(int j = 0; j<analyzer2.m_corpus.getSize(); j++)	{
@@ -727,7 +734,7 @@ public class DocAnalyzer {
 			
 		}
 		
-	
+	*/
 		
 		
 	}
