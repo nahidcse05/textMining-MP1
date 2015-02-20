@@ -902,8 +902,8 @@ public class bigram_model_change1 {
 		bigram_model_change1 com = new bigram_model_change1();
 		com.readunigram("./data/stat1/new_uni_stat_all.txt");
 		com.readbigram("./data/stat1/new_bi_stat_all.txt");
-        //com.linear_smoothing_new1("good");
-        //com.discount_smoothing("good");
+        com.linear_smoothing_new1("good");
+        com.discount_smoothing("good");
 		
 /*		//com.sortByComparatorUnigram();
         //com.sortByComparator(); // Sorting then call random sample
